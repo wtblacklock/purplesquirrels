@@ -10,68 +10,93 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <div className="pt-36 pb-28 md:pt-44 md:pb-36">
-      <Container>
-        <FadeIn>
-          <span className="text-xs font-sans font-medium uppercase tracking-widest text-muted block mb-8">
-            Get in touch
-          </span>
-          <h1 className="font-display font-bold uppercase text-hero-sm md:text-hero-md text-foreground mb-8 leading-[0.92]">
-            Start a Conversation
-          </h1>
-          <p className="text-xl text-muted mb-16 leading-relaxed max-w-lg">
-            For general inquiries, partnerships, or anything else. We respond within 1 business day.
-          </p>
-        </FadeIn>
+    <>
+      {/* ── Hero ── */}
+      <section className="pt-[196px] md:pt-[196px] pb-8 md:pb-16">
+        <Container>
+          <FadeIn>
+            <div className="flex flex-col gap-y-4 md:gap-y-6">
+              <h1 className="font-h1 text-foreground">
+                Start a Conversation
+              </h1>
+              <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl">
+                For general inquiries, partnerships, or anything else. We respond within 1 business day.
+              </p>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
 
-        <FadeIn delay={0.08}>
-          <form className="max-w-2xl space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-xs font-medium uppercase tracking-widest text-muted">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full bg-surface border border-border rounded-md px-4 py-3 text-foreground text-sm placeholder:text-muted/50 focus:outline-none focus:border-foreground/30 transition-colors"
-                  placeholder="Jane Doe"
-                />
+      {/* ── Form ── */}
+      <section className="py-[74px] md:py-[148px]">
+        <Container>
+          <FadeIn>
+            <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-x-8">
+              <div className="col-span-12 md:col-span-3">
+                <div className="flex flex-col gap-y-4">
+                  <a href="mailto:hello@purplesquirrel.ai" className="link-underline text-sm text-muted hover:text-foreground transition-colors">
+                    hello@purplesquirrel.ai
+                  </a>
+                  <a href="#" className="link-underline text-sm text-muted hover:text-foreground transition-colors">
+                    LinkedIn
+                  </a>
+                  <a href="#" className="link-underline text-sm text-muted hover:text-foreground transition-colors">
+                    Twitter / X
+                  </a>
+                </div>
               </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-xs font-medium uppercase tracking-widest text-muted">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full bg-surface border border-border rounded-md px-4 py-3 text-foreground text-sm placeholder:text-muted/50 focus:outline-none focus:border-foreground/30 transition-colors"
-                  placeholder="jane@company.com"
-                />
+
+              <div className="col-span-12 md:col-span-9">
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="flex flex-col gap-y-2">
+                      <label htmlFor="name" className="text-xs font-medium uppercase tracking-widest text-muted">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Jane Doe"
+                        className="w-full bg-surface border border-border rounded-sm px-4 py-3 text-foreground text-sm focus:outline-none focus:border-muted transition-colors placeholder:text-muted placeholder:opacity-60"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-y-2">
+                      <label htmlFor="email" className="text-xs font-medium uppercase tracking-widest text-muted">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="jane@company.com"
+                        className="w-full bg-surface border border-border rounded-sm px-4 py-3 text-foreground text-sm focus:outline-none focus:border-muted transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-y-2">
+                    <label htmlFor="message" className="text-xs font-medium uppercase tracking-widest text-muted">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={6}
+                      placeholder="Tell us about your project..."
+                      className="w-full bg-surface border border-border rounded-sm px-4 py-3 text-foreground text-sm focus:outline-none focus:border-muted transition-colors resize-none"
+                    />
+                  </div>
+
+                  <Button type="submit" size="lg">
+                    Send Message
+                  </Button>
+                </form>
               </div>
             </div>
-
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-xs font-medium uppercase tracking-widest text-muted">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                className="w-full bg-surface border border-border rounded-md px-4 py-3 text-foreground text-sm placeholder:text-muted/50 focus:outline-none focus:border-foreground/30 transition-colors resize-none"
-                placeholder="Tell us about your project..."
-              />
-            </div>
-
-            <Button type="submit" size="lg">
-              Send Message
-            </Button>
-          </form>
-        </FadeIn>
-      </Container>
-    </div>
+          </FadeIn>
+        </Container>
+      </section>
+    </>
   );
 }

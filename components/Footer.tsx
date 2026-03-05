@@ -3,41 +3,43 @@ import { Container } from './Container';
 
 export function Footer() {
   return (
-    <footer className="border-t border-border pt-16 pb-12 bg-background">
+    <footer className="border-t border-border pt-16 pb-0 bg-background">
       <Container>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
-          <div className="col-span-2 md:col-span-1">
-            <span className="font-display font-bold text-sm uppercase tracking-widest text-foreground">
-              Purple Squirrel
-            </span>
-            <p className="mt-4 text-sm text-muted leading-relaxed max-w-[180px]">
-              AI engineering and transformation for the next decade.
+        <div className="grid grid-cols-12 gap-y-12 md:gap-x-8 pb-16">
+          {/* Brand + tagline */}
+          <div className="col-span-12 md:col-span-6">
+            <p className="text-sm text-muted leading-relaxed max-w-sm">
+              AI engineering and transformation for the businesses that want to win the next decade.
             </p>
+            <a
+              href="mailto:hello@purplesquirrel.ai"
+              className="link-underline mt-6 inline-block text-sm text-foreground"
+            >
+              hello@purplesquirrel.ai
+            </a>
           </div>
 
-          <div className="flex flex-col gap-3">
-            <h3 className="text-xs font-medium uppercase tracking-widest text-muted mb-1">Practice</h3>
-            <Link href="/ai-engineering" className="text-sm text-foreground/60 hover:text-foreground transition-colors">AI Engineering</Link>
-            <Link href="/ai-transformation" className="text-sm text-foreground/60 hover:text-foreground transition-colors">AI Transformation</Link>
-          </div>
+          {/* Services */}
+          <nav className="col-span-6 md:col-span-3 flex flex-col gap-y-3" aria-label="Services">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted mb-1">Practice</p>
+            <Link href="/ai-engineering" className="link-underline text-sm text-foreground">AI Engineering</Link>
+            <Link href="/ai-transformation" className="link-underline text-sm text-foreground">AI Transformation</Link>
+          </nav>
 
-          <div className="flex flex-col gap-3">
-            <h3 className="text-xs font-medium uppercase tracking-widest text-muted mb-1">Company</h3>
-            <Link href="/about" className="text-sm text-foreground/60 hover:text-foreground transition-colors">About</Link>
-            <Link href="/contact" className="text-sm text-foreground/60 hover:text-foreground transition-colors">Contact</Link>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            <h3 className="text-xs font-medium uppercase tracking-widest text-muted mb-1">Connect</h3>
-            <a href="#" className="text-sm text-foreground/60 hover:text-foreground transition-colors">LinkedIn</a>
-            <a href="#" className="text-sm text-foreground/60 hover:text-foreground transition-colors">Twitter / X</a>
-            <a href="mailto:hello@twinb.me" className="text-sm text-foreground/60 hover:text-foreground transition-colors">hello@twinb.me</a>
-          </div>
+          {/* Company */}
+          <nav className="col-span-6 md:col-span-3 flex flex-col gap-y-3" aria-label="Company">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted mb-1">Company</p>
+            <Link href="/about" className="link-underline text-sm text-foreground">About</Link>
+            <Link href="/contact" className="link-underline text-sm text-foreground">Contact</Link>
+            <a href="#" className="link-underline text-sm text-foreground">LinkedIn</a>
+            <a href="#" className="link-underline text-sm text-foreground">Twitter / X</a>
+          </nav>
         </div>
 
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        {/* Copyright bar */}
+        <div className="border-t border-border py-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
           <p className="text-xs text-muted">
-            © {new Date().getFullYear()} TwinB Inc. All rights reserved.
+            © {new Date().getFullYear()} Purple Squirrel Inc. All rights reserved.
           </p>
           <div className="flex gap-6">
             <span className="text-xs text-muted">Privacy Policy</span>
@@ -45,6 +47,16 @@ export function Footer() {
           </div>
         </div>
       </Container>
+
+      {/* Giant wordmark — full width, centered */}
+      <div className="overflow-hidden leading-none text-center pt-32" aria-hidden="true">
+        <p
+          className="font-display uppercase tracking-tight text-foreground whitespace-nowrap select-none inline-block"
+          style={{ fontSize: 'clamp(4rem, 11.5vw, 13rem)', lineHeight: 0.85, opacity: 0.25 }}
+        >
+          Purple Squirrel
+        </p>
+      </div>
     </footer>
   );
 }

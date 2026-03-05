@@ -11,22 +11,19 @@ interface SectionProps extends HTMLAttributes<HTMLElement> {
 
 export function Section({ label, title, children, className, ...props }: SectionProps) {
   return (
-    <section
-      className={cn('py-24 md:py-32 border-t border-border', className)}
-      {...props}
-    >
+    <section className={cn('py-32 md:py-64', className)} {...props}>
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
-          <div className="md:col-span-3">
+        <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-x-8">
+          <div className="col-span-12 md:col-span-3">
             {label && (
-              <span className="text-xs font-sans font-medium uppercase tracking-widest text-muted">
+              <span className="text-xs font-medium uppercase tracking-widest text-muted">
                 {label}
               </span>
             )}
           </div>
-          <div className="md:col-span-9">
+          <div className="col-span-12 md:col-span-9">
             {title && (
-              <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-8 leading-tight">
+              <h2 className="font-h2 text-foreground mb-8">
                 {title}
               </h2>
             )}

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Syne } from 'next/font/google';
+import { Inter, Bebas_Neue } from 'next/font/google';
 import './globals.css';
 import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
@@ -11,22 +11,22 @@ const inter = Inter({
   weight: ['400', '500', '600'],
 });
 
-const syne = Syne({
+const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
-  variable: '--font-syne',
+  variable: '--font-display',
   display: 'swap',
-  weight: ['700', '800'],
+  weight: ['400'],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://twinb.me'),
+  metadataBase: new URL('https://purplesquirrel.ai'),
   title: {
-    default: 'TwinB | AI Engineering & Transformation',
-    template: '%s | TwinB',
+    default: 'Purple Squirrel | AI Engineering & Transformation',
+    template: '%s | Purple Squirrel',
   },
   description: 'The businesses that win the next decade will be AI-native. We build the engineering and transformation systems that get you there.',
   openGraph: {
-    siteName: 'TwinB',
+    siteName: 'Purple Squirrel',
     type: 'website',
     locale: 'en_US',
   },
@@ -37,7 +37,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${syne.variable}`}>
+    <html lang="en" className={`${inter.variable} ${bebasNeue.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Prevent FOUC on theme init */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);})();`,
+          }}
+        />
+      </head>
       <body>
         <Nav />
         <main>{children}</main>
