@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Container } from '@/components/Container';
 import { Section } from '@/components/Section';
+import { FadeIn } from '@/components/FadeIn';
 
 export const metadata: Metadata = {
   title: 'AI Transformation',
@@ -10,14 +11,20 @@ export const metadata: Metadata = {
 export default function AITransformation() {
   return (
     <>
-      <div className="pt-24 pb-16 md:pt-32 md:pb-24 border-b border-white/5">
+      {/* Page header */}
+      <div className="pt-36 pb-20 md:pt-44 md:pb-28 border-b border-border">
         <Container>
-          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-6">
-            AI Transformation
-          </h1>
-          <p className="text-xl text-[#B4B8C0] max-w-2xl leading-relaxed">
-            From AI-absent to AI-native. People, processes, and products — all three, or none of it sticks.
-          </p>
+          <FadeIn>
+            <span className="text-xs font-sans font-medium uppercase tracking-widest text-muted block mb-8">
+              Practice
+            </span>
+            <h1 className="font-display font-bold uppercase text-hero-sm md:text-hero-md text-foreground mb-8 leading-[0.92]">
+              AI Transformation
+            </h1>
+            <p className="text-xl md:text-2xl text-muted leading-relaxed max-w-2xl">
+              From AI-absent to AI-native. People, processes, and products — all three, or none of it sticks.
+            </p>
+          </FadeIn>
         </Container>
       </div>
 

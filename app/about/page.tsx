@@ -1,23 +1,29 @@
 import type { Metadata } from 'next';
 import { Container } from '@/components/Container';
 import { Section } from '@/components/Section';
+import { FadeIn } from '@/components/FadeIn';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'AI engineering and transformation, done by people who\'ve shipped it themselves.',
+  description: "AI engineering and transformation, done by people who've shipped it themselves.",
 };
 
 export default function About() {
   return (
     <>
-      <div className="pt-24 pb-16 md:pt-32 md:pb-24 border-b border-white/5">
+      <div className="pt-36 pb-20 md:pt-44 md:pb-28 border-b border-border">
         <Container>
-          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-6">
-            Where scale begins
-          </h1>
-          <p className="text-xl text-[#B4B8C0] max-w-2xl leading-relaxed">
-            AI engineering and transformation, done by people who've shipped it themselves.
-          </p>
+          <FadeIn>
+            <span className="text-xs font-sans font-medium uppercase tracking-widest text-muted block mb-8">
+              Company
+            </span>
+            <h1 className="font-display font-bold uppercase text-hero-sm md:text-hero-md text-foreground mb-8 leading-[0.92]">
+              Where scale begins
+            </h1>
+            <p className="text-xl md:text-2xl text-muted leading-relaxed max-w-2xl">
+              AI engineering and transformation, done by people who've shipped it themselves.
+            </p>
+          </FadeIn>
         </Container>
       </div>
 
@@ -31,12 +37,22 @@ export default function About() {
       </Section>
 
       <Section label="Team" title="Small by design.">
-        <p>
-          Jackson Blacklock — Scale strategist with a background in business operations, systems thinking, and enterprise execution. MBA. Focuses on operational alignment, process design, and roadmap prioritization.
-        </p>
-        <p>
-          William Blacklock — Product and AI operator with deep experience across product strategy, growth execution, and automation systems. Builds consumer brands, launches digital products, connects product to revenue.
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="border border-border p-8 rounded-md">
+            <h3 className="font-display font-bold text-xl text-foreground mb-3">Jackson Blacklock</h3>
+            <p className="text-xs font-medium uppercase tracking-widest text-accent mb-5">Scale Strategist</p>
+            <p>
+              Background in business operations, systems thinking, and enterprise execution. MBA. Focuses on operational alignment, process design, and roadmap prioritization.
+            </p>
+          </div>
+          <div className="border border-border p-8 rounded-md">
+            <h3 className="font-display font-bold text-xl text-foreground mb-3">William Blacklock</h3>
+            <p className="text-xs font-medium uppercase tracking-widest text-accent mb-5">Product & AI Operator</p>
+            <p>
+              Deep experience across product strategy, growth execution, and automation systems. Builds consumer brands, launches digital products, connects product to revenue.
+            </p>
+          </div>
+        </div>
       </Section>
     </>
   );

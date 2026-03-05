@@ -3,20 +3,33 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg: #000000;
+    --fg: #F2F0E9;
+    --fg-muted: #787272;
+    --accent: #6DAF5E;
+    --border: #1C1C1C;
+    --surface: #0D0D0D;
+  }
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    background-color: #000;
   }
 
   body {
-    @apply bg-[#08090A] text-[#E4E5E7] antialiased;
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    selection-background-color: rgb(168 85 247 / 0.3);
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   }
 
   ::selection {
-    @apply bg-purple-500/30;
+    background-color: #6DAF5E;
+    color: #000;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-syne), ui-sans-serif, sans-serif;
   }
 }
 

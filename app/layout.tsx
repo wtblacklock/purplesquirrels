@@ -1,19 +1,21 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, Syne } from 'next/font/google';
 import './globals.css';
 import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
 
 const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-inter',
   display: 'swap',
+  weight: ['400', '500', '600'],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const syne = Syne({
   subsets: ['latin'],
-  variable: '--font-mono',
+  variable: '--font-syne',
   display: 'swap',
+  weight: ['700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -33,13 +35,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${syne.variable}`}>
       <body>
         <Nav />
         <main>{children}</main>
