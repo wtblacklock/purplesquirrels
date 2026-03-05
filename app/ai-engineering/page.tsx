@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Container } from '@/components/Container';
-import { Section } from '@/components/Section';
+import { Button } from '@/components/Button';
 import { FadeIn } from '@/components/FadeIn';
 
 export const metadata: Metadata = {
@@ -8,49 +8,115 @@ export const metadata: Metadata = {
   description: 'Elite squads who use AI to build AI. Application development, agentic systems, code migration, and data engineering — shipped to production.',
 };
 
+function Placeholder({ className = '', aspect = 'aspect-video' }: { className?: string; aspect?: string }) {
+  return (
+    <div className={`w-full overflow-hidden ${aspect} ${className}`}>
+      <div className="w-full h-full placeholder-image" />
+    </div>
+  );
+}
+
 export default function AIEngineering() {
   return (
     <>
-      {/* Page header */}
-      <div className="pt-36 pb-20 md:pt-44 md:pb-28 border-b border-border">
+      {/* ── Hero ── */}
+      <section className="pt-[196px] md:pt-[196px] pb-8 md:pb-16">
         <Container>
           <FadeIn>
-            <span className="text-xs font-sans font-medium uppercase tracking-widest text-muted block mb-8">
-              Practice
-            </span>
-            <h1 className="font-display font-bold uppercase text-hero-sm md:text-hero-md text-foreground mb-8 leading-[0.92]">
-              AI Engineering
-            </h1>
-            <p className="text-xl md:text-2xl text-muted leading-relaxed max-w-2xl">
-              Elite squads who use AI to build AI. You pay for features in production, not hours in Zoom.
-            </p>
+            <div className="flex flex-col gap-y-4 md:gap-y-6">
+              <h1 className="font-h1 text-foreground">
+                AI Engineering
+              </h1>
+              <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl">
+                Elite squads who use AI to build AI. You pay for features in production, not hours in Zoom.
+              </p>
+            </div>
           </FadeIn>
         </Container>
-      </div>
+      </section>
 
-      <Section id="infrastructure" label="Fullstack" title="Application Development">
-        <p>
-          We build AI-native applications end-to-end. Frontend, backend, APIs, and integrations — designed from the ground up to leverage AI, not bolt it on.
-        </p>
-        <p>
-          From greenfield builds to adding AI layers to existing products, we ship full-stack solutions with short feedback loops and zero hand-holding.
-        </p>
-      </Section>
+      {/* ── Hero image ── */}
+      <Container>
+        <FadeIn delay={0.1}>
+          <Placeholder aspect="aspect-video" />
+        </FadeIn>
+      </Container>
 
-      <Section id="evaluation" label="Methodology" title="From SDLC to AI DLC">
-        <p>
-          Traditional software development lifecycles don't fit AI systems. We apply an AI-native development lifecycle: experiment, evaluate, iterate, deploy — with proper evals and observability at every stage.
-        </p>
-        <p>
-          This is how you stop guessing and start knowing whether your AI is actually working.
-        </p>
-      </Section>
+      {/* ── Three services grid ── */}
+      <section className="py-[74px] md:py-[148px]">
+        <Container>
+          <FadeIn>
+            <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-x-8">
+              {/* Left label col */}
+              <div className="col-span-12 md:col-span-3">
+                <span className="text-xs font-medium uppercase tracking-widest text-muted">What we build</span>
+              </div>
+              {/* Three service columns with left borders */}
+              <div className="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-x-8">
+                <div className="flex flex-col gap-y-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-4">
+                  <Placeholder aspect="aspect-[4/3]" className="mb-2" />
+                  <h3 className="font-display text-xl text-foreground uppercase leading-tight">
+                    Application Development
+                  </h3>
+                  <span className="text-xs font-medium uppercase tracking-widest text-muted">01</span>
+                  <p className="text-muted text-sm leading-relaxed">
+                    We build AI-native applications end-to-end. Frontend, backend, APIs — designed from the ground up to leverage AI, not bolt it on.
+                  </p>
+                </div>
 
-      <Section id="data" label="Agentic" title="Custom Agentic Solutions">
-        <p>
-          Agents that don't just answer questions — they take actions. We design and build multi-agent systems that automate complex workflows across your tooling and data.
-        </p>
-      </Section>
+                <div className="flex flex-col gap-y-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-4">
+                  <Placeholder aspect="aspect-[4/3]" className="mb-2" />
+                  <h3 className="font-display text-xl text-foreground uppercase leading-tight">
+                    From SDLC to AI DLC
+                  </h3>
+                  <span className="text-xs font-medium uppercase tracking-widest text-muted">02</span>
+                  <p className="text-muted text-sm leading-relaxed">
+                    We apply an AI-native development lifecycle: experiment, evaluate, iterate, deploy — with proper evals and observability at every stage.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-y-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-4">
+                  <Placeholder aspect="aspect-[4/3]" className="mb-2" />
+                  <h3 className="font-display text-xl text-foreground uppercase leading-tight">
+                    Custom Agentic Solutions
+                  </h3>
+                  <span className="text-xs font-medium uppercase tracking-widest text-muted">03</span>
+                  <p className="text-muted text-sm leading-relaxed">
+                    Agents that don't just answer questions — they take actions. Multi-agent systems that automate complex workflows across your tooling and data.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* ── Approach section ── */}
+      <section className="py-[74px] md:py-[148px] border-t border-border">
+        <Container>
+          <FadeIn>
+            <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-x-8">
+              <div className="col-span-12 md:col-span-3">
+                <span className="text-xs font-medium uppercase tracking-widest text-muted">Methodology</span>
+              </div>
+              <div className="col-span-12 md:col-span-9">
+                <h2 className="font-h2 text-foreground mb-8 md:mb-12">
+                  Code migration + refactors, data engineering, and analysis.
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12">
+                  <p className="text-muted leading-relaxed text-base md:text-lg">
+                    From greenfield builds to adding AI layers to existing products, we ship full-stack solutions with short feedback loops and zero hand-holding.
+                  </p>
+                  <p className="text-muted leading-relaxed text-base md:text-lg">
+                    This is how you stop guessing and start knowing whether your AI is actually working.
+                  </p>
+                </div>
+                <Button href="/contact" size="lg">Start a Conversation</Button>
+              </div>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
     </>
   );
 }
