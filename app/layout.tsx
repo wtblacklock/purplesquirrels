@@ -21,12 +21,12 @@ const bebasNeue = Bebas_Neue({
 export const metadata: Metadata = {
   metadataBase: new URL('https://purplesquirrel.ai'),
   title: {
-    default: 'Purple Squirrel | AI Engineering & Transformation',
-    template: '%s | Purple Squirrel',
+    default: 'purple squirrels | AI Engineering & Transformation',
+    template: '%s | purple squirrels',
   },
   description: 'The businesses that win the next decade will be AI-native. We build the engineering and transformation systems that get you there.',
   openGraph: {
-    siteName: 'Purple Squirrel',
+    siteName: 'purple squirrels',
     type: 'website',
     locale: 'en_US',
   },

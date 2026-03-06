@@ -39,7 +39,7 @@ export function Footer() {
         {/* Copyright bar */}
         <div className="border-t border-border py-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
           <p className="text-xs text-muted">
-            © {new Date().getFullYear()} Purple Squirrel Inc. All rights reserved.
+            © {new Date().getFullYear()} purple squirrels Inc. All rights reserved.
           </p>
           <div className="flex gap-6">
             <span className="text-xs text-muted">Privacy Policy</span>
@@ -54,7 +54,7 @@ export function Footer() {
           className="font-display uppercase tracking-tight text-foreground whitespace-nowrap select-none inline-block"
           style={{ fontSize: 'clamp(4rem, 11.5vw, 13rem)', lineHeight: 0.85, opacity: 0.25 }}
         >
-          Purple Squirrel
+          purple squirrels
         </p>
       </div>
     </footer>

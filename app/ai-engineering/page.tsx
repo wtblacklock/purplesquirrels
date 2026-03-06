@@ -54,33 +54,33 @@ export default function AIEngineering() {
               {/* Three service columns with left borders */}
               <div className="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-x-8">
                 <div className="flex flex-col gap-y-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-4">
+                  <span className="text-xs font-medium uppercase tracking-widest text-muted">01</span>
                   <Placeholder aspect="aspect-[4/3]" className="mb-2" />
                   <h3 className="font-display text-xl text-foreground uppercase leading-tight">
                     Application Development
                   </h3>
-                  <span className="text-xs font-medium uppercase tracking-widest text-muted">01</span>
                   <p className="text-muted text-sm leading-relaxed">
                     We build AI-native applications end-to-end. Frontend, backend, APIs — designed from the ground up to leverage AI, not bolt it on.
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-y-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-4">
+                  <span className="text-xs font-medium uppercase tracking-widest text-muted">02</span>
                   <Placeholder aspect="aspect-[4/3]" className="mb-2" />
                   <h3 className="font-display text-xl text-foreground uppercase leading-tight">
                     From SDLC to AI DLC
                   </h3>
-                  <span className="text-xs font-medium uppercase tracking-widest text-muted">02</span>
                   <p className="text-muted text-sm leading-relaxed">
                     We apply an AI-native development lifecycle: experiment, evaluate, iterate, deploy — with proper evals and observability at every stage.
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-y-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-4">
+                  <span className="text-xs font-medium uppercase tracking-widest text-muted">03</span>
                   <Placeholder aspect="aspect-[4/3]" className="mb-2" />
                   <h3 className="font-display text-xl text-foreground uppercase leading-tight">
                     Custom Agentic Solutions
                   </h3>
-                  <span className="text-xs font-medium uppercase tracking-widest text-muted">03</span>
                   <p className="text-muted text-sm leading-relaxed">
                     Agents that don't just answer questions — they take actions. Multi-agent systems that automate complex workflows across your tooling and data.
                   </p>
@@ -91,7 +91,7 @@ export default function AIEngineering() {
         </Container>
       </section>
 
-      {/* ── Approach section ── */}
+      {/* ── Methodology section ── */}
       <section className="py-[74px] md:py-[148px] border-t border-border">
         <Container>
           <FadeIn>
@@ -99,7 +99,7 @@ export default function AIEngineering() {
               <div className="col-span-12 md:col-span-3">
                 <span className="text-xs font-medium uppercase tracking-widest text-muted">Methodology</span>
               </div>
-              <div className="col-span-12 md:col-span-9">
+              <div className="col-span-12">
                 <h2 className="font-h2 text-foreground mb-8 md:mb-12">
                   Code migration + refactors, data engineering, and analysis.
                 </h2>

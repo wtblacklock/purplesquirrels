@@ -47,13 +47,15 @@ export default function AITransformation() {
         <Container>
           <FadeIn>
             <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-x-8">
+              {/* Left label col */}
               <div className="col-span-12 md:col-span-3">
                 <span className="text-xs font-medium uppercase tracking-widest text-muted">What we do</span>
               </div>
+              {/* Three service columns with left borders */}
               <div className="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-x-8">
                 <div className="flex flex-col gap-y-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-4">
-                  <Placeholder aspect="aspect-[4/3]" className="mb-2" />
                   <span className="text-xs font-medium uppercase tracking-widest text-muted">01</span>
+                  <Placeholder aspect="aspect-[4/3]" className="mb-2" />
                   <h3 className="font-display text-xl text-foreground uppercase leading-tight">
                     AI Strategy
                   </h3>
@@ -63,8 +65,8 @@ export default function AITransformation() {
                 </div>
 
                 <div className="flex flex-col gap-y-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-4">
-                  <Placeholder aspect="aspect-[4/3]" className="mb-2" />
                   <span className="text-xs font-medium uppercase tracking-widest text-muted">02</span>
+                  <Placeholder aspect="aspect-[4/3]" className="mb-2" />
                   <h3 className="font-display text-xl text-foreground uppercase leading-tight">
                     People & Training
                   </h3>
@@ -74,8 +76,8 @@ export default function AITransformation() {
                 </div>
 
                 <div className="flex flex-col gap-y-4 border-t md:border-t-0 md:border-l border-border pt-8 md:pt-0 md:pl-4">
-                  <Placeholder aspect="aspect-[4/3]" className="mb-2" />
                   <span className="text-xs font-medium uppercase tracking-widest text-muted">03</span>
+                  <Placeholder aspect="aspect-[4/3]" className="mb-2" />
                   <h3 className="font-display text-xl text-foreground uppercase leading-tight">
                     Implementation Roadmap
                   </h3>
@@ -94,13 +96,13 @@ export default function AITransformation() {
         <Container>
           <FadeIn>
             <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-x-8">
-              <h2 className="col-span-12 font-h2 text-foreground">
-                Product transformation. Process redesign. AI tooling.
-              </h2>
               <div className="col-span-12 md:col-span-3">
                 <span className="text-xs font-medium uppercase tracking-widest text-muted">Also included</span>
               </div>
-              <div className="col-span-12 md:col-span-9">
+              <div className="col-span-12">
+                <h2 className="font-h2 text-foreground mb-8 md:mb-12">
+                  Product transformation. Process redesign. AI tooling.
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12">
                   <p className="text-muted leading-relaxed text-base md:text-lg">
                     We audit your business for AI leverage points. Not every process needs an LLM — but many do, and identifying which ones is worth more than any implementation.

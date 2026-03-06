@@ -46,7 +46,7 @@ export function Nav() {
             href="/"
             className="pointer-events-auto font-display text-xs uppercase tracking-widest text-muted hover:text-foreground transition-colors"
           >
-            Purple Squirrel
+            purple squirrels
           </Link>
         </div>
       </header>
@@ -86,7 +86,7 @@ export function Nav() {
                   onClick={() => setOpen(false)}
                   className="font-display text-xs uppercase tracking-widest text-foreground"
                 >
-                  Purple Squirrel
+                  purple squirrels
                 </Link>
                 <button
                   onClick={() => setOpen(false)}
@@ -164,7 +164,7 @@ export function Nav() {
                     </div>
                     <div className="flex items-baseline gap-3 text-sm">
                       <span className="text-muted w-24 shrink-0">LinkedIn</span>
-                      <a href="#" className="link-underline text-foreground">Purple Squirrel ↗</a>
+                      <a href="#" className="link-underline text-foreground">purple squirrels ↗</a>
                     </div>
                     <div className="flex items-baseline gap-3 text-sm">
                       <span className="text-muted w-24 shrink-0">Twitter / X</span>
