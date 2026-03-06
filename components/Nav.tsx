@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -40,7 +40,7 @@ export function Nav() {
   return (
     <>
       {/* ── Top bar: logo only — anchored at top, does not follow scroll ── */}
-      <header className="absolute top-0 left-0 right-0 z-40 h-18 md:h-24 flex items-center pointer-events-none">
+      <header className="absolute top-0 left-0 right-0 z-40 h-20 md:h-[106px] flex items-center pointer-events-none">
         <div className="mx-auto max-w-[1440px] w-full px-4 md:px-8">
           <Link
             href="/"
@@ -53,16 +53,24 @@ export function Nav() {
 
       {/* ── Bottom-center floating pill ── */}
       <div
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-x-1 rounded-xl border border-border px-2 py-2 shadow-xl backdrop-blur-md"
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-x-1.5 rounded-xl border border-border px-2.5 py-2.5 shadow-xl backdrop-blur-md"
         style={{ background: 'var(--fg)', color: 'var(--bg)' }}
       >
+        <Link
+          href="/"
+          aria-label="Home"
+          className="size-10 flex items-center justify-center hover:opacity-70 transition-opacity"
+          style={{ color: 'var(--bg)' }}
+        >
+          <Home size={18} />
+        </Link>
         <button
           onClick={() => setOpen(true)}
           aria-label="Open menu"
-          className="size-9 flex items-center justify-center hover:opacity-70 transition-opacity"
+          className="size-10 flex items-center justify-center hover:opacity-70 transition-opacity"
           style={{ color: 'var(--bg)' }}
         >
-          <Menu size={16} />
+          <Menu size={18} />
         </button>
         <ThemeToggle />
       </div>
@@ -80,7 +88,7 @@ export function Nav() {
           >
             {/* Overlay top bar — constrained to site width */}
             <div className="shrink-0 border-b border-border">
-              <div className="mx-auto max-w-[1440px] w-full px-4 md:px-8 h-18 md:h-24 flex items-center justify-between">
+              <div className="mx-auto max-w-[1440px] w-full px-4 md:px-8 h-20 md:h-[106px] flex items-center justify-between">
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}

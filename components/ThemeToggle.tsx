@@ -21,18 +21,18 @@ export function ThemeToggle({ className }: { className?: string }) {
     localStorage.setItem('theme', next);
   };
 
-  if (!mounted) return <div className={cn('size-9', className)} />;
+  if (!mounted) return <div className={cn('size-10', className)} />;
 
   return (
     <button
       onClick={toggle}
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
       className={cn(
-        'size-9 flex items-center justify-center text-muted hover:text-foreground transition-colors',
+        'size-10 flex items-center justify-center text-muted hover:text-foreground transition-colors',
         className
       )}
     >
-      {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
+      {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
     </button>
   );
 }
