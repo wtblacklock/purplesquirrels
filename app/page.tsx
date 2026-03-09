@@ -5,7 +5,7 @@ import { Button } from '@/components/Button';
 import { FadeIn, TypewriterIn, ButtonReveal } from '@/components/FadeIn';
 
 export const metadata: Metadata = {
-  title: 'purple squirrels | AI Engineering & Transformation',
+  title: 'Purple Squirrels | AI Engineering & Transformation',
   description: 'The businesses that win the next decade will be AI-native. We build the engineering and transformation systems that get you there.',
 };
 
@@ -105,11 +105,11 @@ export default function Home() {
               <div className="col-span-12 md:col-span-3">
                 <span className="text-xs font-medium uppercase tracking-widest text-muted">Approach</span>
               </div>
-              <div className="col-span-12">
+              <div className="col-span-12 md:col-span-9">
                 <h2 className="font-h2 text-foreground mb-8 md:mb-12">
                   You're not behind. You're at the starting line.
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div className="flex flex-col gap-8 md:gap-12 max-w-[55%]">
                   <p className="text-muted leading-relaxed text-base md:text-lg">
                     Every business is now being asked to compete on intelligence. The ones that move with depth — not just speed — will win.
                   </p>

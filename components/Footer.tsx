@@ -12,10 +12,10 @@ export function Footer() {
               AI engineering and transformation for the businesses that want to win the next decade.
             </p>
             <a
-              href="mailto:hello@purplesquirrel.ai"
+              href="mailto:hello@purplesquirrels.ai"
               className="link-underline mt-6 inline-block text-sm text-foreground"
             >
-              hello@purplesquirrel.ai
+              hello@purplesquirrels.ai
             </a>
           </div>
 
@@ -39,7 +39,7 @@ export function Footer() {
         {/* Copyright bar */}
         <div className="border-t border-border py-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
           <p className="text-xs text-muted">
-            © {new Date().getFullYear()} purple squirrels Inc. All rights reserved.
+            © {new Date().getFullYear()} Purple Squirrels Inc. All rights reserved.
           </p>
           <div className="flex gap-6">
             <span className="text-xs text-muted">Privacy Policy</span>
@@ -52,9 +52,9 @@ export function Footer() {
       <div className="overflow-hidden leading-none text-center pt-32" aria-hidden="true">
         <p
           className="font-display uppercase tracking-tight text-foreground whitespace-nowrap select-none inline-block"
-          style={{ fontSize: 'clamp(4rem, 11.5vw, 13rem)', lineHeight: 0.85, opacity: 0.25 }}
+          style={{ fontSize: 'clamp(4.8rem, 13.8vw, 15.6rem)', lineHeight: 0.85, opacity: 0.25, transform: 'translateY(calc(15% + 25px))' }}
         >
-          purple squirrels
+          Purple Squirrels
         </p>
       </div>
     </footer>

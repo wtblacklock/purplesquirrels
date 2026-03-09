@@ -99,11 +99,11 @@ export default function AITransformation() {
               <div className="col-span-12 md:col-span-3">
                 <span className="text-xs font-medium uppercase tracking-widest text-muted">Also included</span>
               </div>
-              <div className="col-span-12">
+              <div className="col-span-12 md:col-span-9">
                 <h2 className="font-h2 text-foreground mb-8 md:mb-12">
                   Product transformation. Process redesign. AI tooling.
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12">
+                <div className="flex flex-col gap-8 md:gap-12 mb-12 max-w-[55%]">
                   <p className="text-muted leading-relaxed text-base md:text-lg">
                     We audit your business for AI leverage points. Not every process needs an LLM — but many do, and identifying which ones is worth more than any implementation.
                   </p>

@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ThemeToggle } from './ThemeToggle';
 
 const navItems = [
-  { label: 'Home', href: '/' },
+  { label: 'Welcome', href: '/' },
   { label: 'AI Engineering', href: '/ai-engineering' },
   { label: 'AI Transformation', href: '/ai-transformation' },
   { label: 'About', href: '/about' },
@@ -23,61 +23,167 @@ const services = [
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-
-  useEffect(() => { setOpen(false); }, [pathname]);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [desktopCollapsed, setDesktopCollapsed] = useState(false);
+  const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    setOpen(false);
+    setDesktopMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    const syncDesktop = () => {
+      const desktop = mediaQuery.matches;
+      setIsDesktop(desktop);
+      if (!desktop) {
+        setDesktopCollapsed(false);
+        setDesktopMenuOpen(false);
+      }
+    };
+
+    syncDesktop();
+    mediaQuery.addEventListener('change', syncDesktop);
+    return () => mediaQuery.removeEventListener('change', syncDesktop);
+  }, []);
+
+  useEffect(() => {
+    if (!isDesktop) return;
+
+    const onScroll = () => {
+      const shouldCollapse = window.scrollY > 24;
+      setDesktopCollapsed(shouldCollapse);
+
+      if (!shouldCollapse) {
+        setDesktopMenuOpen(false);
+      }
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [isDesktop]);
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        setDesktopMenuOpen(false);
+      }
+    };
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
+    document.body.style.overflow = open && !isDesktop ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [open]);
+  }, [open, isDesktop]);
+
+  const desktopExpanded = !desktopCollapsed || desktopMenuOpen;
 
   return (
     <>
-      {/* ── Top bar: logo only — anchored at top, does not follow scroll ── */}
-      <header className="absolute top-0 left-0 right-0 z-40 h-20 md:h-[106px] flex items-center pointer-events-none">
-        <div className="mx-auto max-w-[1440px] w-full px-4 md:px-8">
+      {/* ── Top bar: fixed so controls follow scroll ── */}
+      <header className="fixed top-0 left-0 right-0 z-40 h-20 md:h-[106px] flex items-center pointer-events-none">
+        <div className="mx-auto max-w-[1440px] w-full px-4 md:px-8 flex items-center justify-between">
           <Link
             href="/"
             className="pointer-events-auto font-display text-xs uppercase tracking-widest text-muted hover:text-foreground transition-colors"
           >
-            purple squirrels
+            Purple Squirrels
           </Link>
+
+          {isDesktop && (
+            <div className="pointer-events-auto relative flex items-center gap-3">
+              <motion.div
+                layout
+                transition={{ duration: 0.26, ease: [0.22, 1, 0.36, 1] }}
+                className="overflow-hidden rounded-xl border border-border px-2 py-2 shadow-xl backdrop-blur-md"
+                style={{ background: 'var(--fg)', color: 'var(--bg)' }}
+              >
+                {desktopExpanded ? (
+                  <div className="flex items-center gap-1.5">
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setDesktopMenuOpen(false)}
+                        className="rounded-md px-3 py-2 text-xs uppercase tracking-wider hover:opacity-70 transition-opacity"
+                        style={{ color: 'var(--bg)' }}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                    <ThemeToggle />
+                    {desktopCollapsed && (
+                      <button
+                        onClick={() => setDesktopMenuOpen(false)}
+                        aria-label="Close desktop menu"
+                        className="size-10 flex items-center justify-center hover:opacity-70 transition-opacity"
+                        style={{ color: 'var(--bg)' }}
+                      >
+                        <X size={18} />
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-1.5">
+                    <Link
+                      href="/contact"
+                      onClick={() => setDesktopMenuOpen(false)}
+                      className="rounded-md px-3 py-2 text-xs uppercase tracking-wider hover:opacity-70 transition-opacity"
+                      style={{ color: 'var(--bg)' }}
+                    >
+                      Contact
+                    </Link>
+                    <button
+                      onClick={() => setDesktopMenuOpen(true)}
+                      aria-label="Open desktop menu"
+                      className="size-10 flex items-center justify-center hover:opacity-70 transition-opacity"
+                      style={{ color: 'var(--bg)' }}
+                    >
+                      <Menu size={18} />
+                    </button>
+                    <ThemeToggle />
+                  </div>
+                )}
+              </motion.div>
+            </div>
+          )}
         </div>
       </header>
 
       {/* ── Bottom-center floating pill ── */}
-      <div
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-x-1.5 rounded-xl border border-border px-2.5 py-2.5 shadow-xl backdrop-blur-md"
-        style={{ background: 'var(--fg)', color: 'var(--bg)' }}
-      >
-        <Link
-          href="/"
-          aria-label="Home"
-          className="size-10 flex items-center justify-center hover:opacity-70 transition-opacity"
-          style={{ color: 'var(--bg)' }}
+      {!isDesktop && (
+        <div
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-x-1.5 rounded-xl border border-border px-2.5 py-2.5 shadow-xl backdrop-blur-md"
+          style={{ background: 'var(--fg)', color: 'var(--bg)' }}
         >
-          <Home size={18} />
-        </Link>
-        <button
-          onClick={() => setOpen(true)}
-          aria-label="Open menu"
-          className="size-10 flex items-center justify-center hover:opacity-70 transition-opacity"
-          style={{ color: 'var(--bg)' }}
-        >
-          <Menu size={18} />
-        </button>
-        <ThemeToggle />
-      </div>
+          <Link
+            href="/"
+            aria-label="Home"
+            className="size-10 flex items-center justify-center hover:opacity-70 transition-opacity"
+            style={{ color: 'var(--bg)' }}
+          >
+            <Home size={18} />
+          </Link>
+          <button
+            onClick={() => setOpen(true)}
+            aria-label="Open menu"
+            className="size-10 flex items-center justify-center hover:opacity-70 transition-opacity"
+            style={{ color: 'var(--bg)' }}
+          >
+            <Menu size={18} />
+          </button>
+          <ThemeToggle />
+        </div>
+      )}
 
       {/* ── Full-screen overlay (content contained to site width) ── */}
       <AnimatePresence>
-        {open && (
+        {open && !isDesktop && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -94,7 +200,7 @@ export function Nav() {
                   onClick={() => setOpen(false)}
                   className="font-display text-xs uppercase tracking-widest text-foreground"
                 >
-                  purple squirrels
+                  Purple Squirrels
                 </Link>
                 <button
                   onClick={() => setOpen(false)}
@@ -166,17 +272,17 @@ export function Nav() {
                   <div className="flex flex-col gap-y-3">
                     <div className="flex items-baseline gap-3 text-sm">
                       <span className="text-muted w-24 shrink-0">General</span>
-                      <a href="mailto:hello@purplesquirrel.ai" className="link-underline text-foreground">
-                        hello@purplesquirrel.ai ↗
+                      <a href="mailto:hello@purplesquirrels.ai" className="link-underline text-foreground">
+                        hello@purplesquirrels.ai ↗
                       </a>
                     </div>
                     <div className="flex items-baseline gap-3 text-sm">
                       <span className="text-muted w-24 shrink-0">LinkedIn</span>
-                      <a href="#" className="link-underline text-foreground">purple squirrels ↗</a>
+                      <a href="#" className="link-underline text-foreground">Purple Squirrels ↗</a>
                     </div>
                     <div className="flex items-baseline gap-3 text-sm">
                       <span className="text-muted w-24 shrink-0">Twitter / X</span>
-                      <a href="#" className="link-underline text-foreground">@purplesquirrel ↗</a>
+                      <a href="#" className="link-underline text-foreground">@purplesquirrels ↗</a>
                     </div>
                   </div>
                 </div>

@@ -49,11 +49,11 @@ export default function About() {
               <div className="col-span-12 md:col-span-3">
                 <span className="text-xs font-medium uppercase tracking-widest text-muted">Positioning</span>
               </div>
-              <div className="col-span-12">
+              <div className="col-span-12 md:col-span-9">
                 <h2 className="font-h2 text-foreground mb-8 md:mb-12">
                   Product & Growth Engineering, built by operators.
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div className="flex flex-col gap-8 md:gap-12 max-w-[55%]">
                   <p className="text-muted leading-relaxed text-base md:text-lg">
                     Today it is easy to ship something. It is hard to make it durable, adopted, and commercially viable.
                   </p>

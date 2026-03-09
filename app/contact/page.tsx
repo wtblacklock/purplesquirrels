@@ -34,8 +34,8 @@ export default function Contact() {
             <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-x-8">
               <div className="col-span-12 md:col-span-3">
                 <div className="flex flex-col gap-y-4">
-                  <a href="mailto:hello@purplesquirrel.ai" className="link-underline text-sm text-muted hover:text-foreground transition-colors">
-                    hello@purplesquirrel.ai
+                  <a href="mailto:hello@purplesquirrels.ai" className="link-underline text-sm text-muted hover:text-foreground transition-colors">
+                    hello@purplesquirrels.ai
                   </a>
                   <a href="#" className="link-underline text-sm text-muted hover:text-foreground transition-colors">
                     LinkedIn

@@ -43,7 +43,7 @@ export function Button({
   if (variant === 'primary') {
     const buttonClasses = cn(
       baseClasses,
-      'bg-foreground text-background relative group border border-foreground dark:border-background overflow-hidden',
+      'bg-foreground hover:bg-background text-background relative group border-2 border-foreground overflow-hidden transition-colors duration-200',
       className
     );
 
@@ -54,10 +54,10 @@ export function Button({
 
     const content = (
       <>
-        <span className={cn(spanClasses, "transition-transform duration-200 ease-out group-hover:-translate-y-full")}>
+        <span className={cn(spanClasses, "transition-transform duration-200 ease-out group-hover:-translate-y-full text-background")}>
           {children}
         </span>
-        <span className={cn(spanClasses, "absolute inset-0 translate-y-full transition-transform duration-200 ease-out group-hover:translate-y-0 bg-background text-foreground")}>
+        <span className={cn(spanClasses, "absolute inset-0 translate-y-full transition-transform duration-200 ease-out group-hover:translate-y-0 text-foreground")}>
           {children}
         </span>
       </>
